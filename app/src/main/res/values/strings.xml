@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Secure Store</string>
-    <string name="todo">TODO</string>
     <string name="e_mail">E-Mail</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="password">Password</string>
@@ -8,4 +7,5 @@
     <string name="create_account">Create Account</string>
     <string name="login">Login</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="hint">Hint</string>
 </resources>
