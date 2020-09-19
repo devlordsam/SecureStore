@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".CreateAccountActivity">
+
+<!--sam-->
+    <EditText
+        android:id="@+id/editTextCAUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+        android:textSize="20sp"
+        android:autofillHints="example@gmail.com" />
+
+    <EditText
+        android:id="@+id/editTextCAMobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/mobile_number"
+        android:inputType="number"
+        android:textSize="20sp"
+        android:autofillHints="9876543210" />
+
+    <EditText
+        android:id="@+id/editTextCAPass1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:autofillHints="example@123"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/editTextCAPass2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/re_enter_password"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:autofillHints="example@123"/>
+
+    <Button
+        android:id="@+id/buttonCA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/button1"
+        android:text="@string/create_account"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonCALogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/button1"
+        android:text="@string/already_have_an_account"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+</LinearLayout>
