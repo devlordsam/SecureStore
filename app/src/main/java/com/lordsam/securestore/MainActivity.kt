@@ -3,6 +3,7 @@ package com.lordsam.securestore
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -64,7 +65,16 @@ class MainActivity : AppCompatActivity() {
             view.imageViewCV.setBackgroundResource(token.image)
 
             view.setOnClickListener {
-                Toast.makeText(context, token.title, Toast.LENGTH_SHORT).show()
+
+                when (position){
+
+                    0 -> context.startActivity(Intent(context, CreditDebitCardActivity::class.java))
+                    1 -> context.startActivity(Intent(context, AdharActivity::class.java))
+                    2 -> context.startActivity(Intent(context, EmailPasswordActivity::class.java))
+                    3 -> context.startActivity(Intent(context, PanCardActivity::class.java))
+                    4 -> context.startActivity(Intent(context, PassportActivity::class.java))
+                    5 -> context.startActivity(Intent(context, WebsiteActivity::class.java))
+                }
             }
 
             return view
