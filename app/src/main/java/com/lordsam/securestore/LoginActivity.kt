@@ -1,4 +1,4 @@
-package com.example.securestore
+package com.lordsam.securestore
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

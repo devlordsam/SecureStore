@@ -1,15 +1,16 @@
-package com.example.securestore
+package com.lordsam.securestore
 
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.example.securestore.dataclass.DataListView
+import com.lordsam.securestore.dataclass.DataListView
 import kotlinx.android.synthetic.main.card_view.view.*
 
 class MainActivity : AppCompatActivity() {
@@ -69,4 +70,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }

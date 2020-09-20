@@ -1,4 +1,4 @@
-package com.example.securestore
+package com.lordsam.securestore
 
 import org.junit.Test
 
