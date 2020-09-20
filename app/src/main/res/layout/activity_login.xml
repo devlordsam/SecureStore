@@ -12,10 +12,10 @@
 
 <!--sam-->
     <EditText
-        android:id="@+id/editTextLoginEmail"
+        android:id="@+id/editTextLoginUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/e_mail"
+        android:hint="@string/username"
         android:inputType="textEmailAddress"
         android:textSize="20sp"
         android:autofillHints="example@gmail.com" />

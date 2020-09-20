@@ -1,11 +1,13 @@
 package com.lordsam.securestore
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.lordsam.securestore.dataclass.AccountData
 
 class CreateAccountActivity : AppCompatActivity() {
 //sam
@@ -13,26 +15,20 @@ class CreateAccountActivity : AppCompatActivity() {
     private lateinit var edtPass1: EditText
     private lateinit var edtPass2: EditText
     private lateinit var btnCreate: Button
-    private lateinit var btnLogin: Button
-    private lateinit var mAuth: FirebaseAuth
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
-        mAuth = FirebaseAuth.getInstance()
+        sharedPref = getSharedPreferences("CreateAccount", MODE_PRIVATE)
 
         edtUsername = findViewById(R.id.editTextCAUsername)
         edtPass1 = findViewById(R.id.editTextCAPass1)
         edtPass2 = findViewById(R.id.editTextCAPass2)
         btnCreate = findViewById(R.id.buttonCA)
-        btnLogin = findViewById(R.id.buttonCALogin)
 
         btnCreate.setOnClickListener {
             validateData()
-        }
-
-        btnLogin.setOnClickListener {
-            finish()
         }
     }
 
@@ -61,27 +57,18 @@ class CreateAccountActivity : AppCompatActivity() {
         }
     }
 
-    private fun createAccount(email :String, pass :String){
+    private fun createAccount(userName :String, pass :String){
 
-        mAuth.createUserWithEmailAndPassword(email, pass)
-            .addOnCompleteListener { task ->
-
-                if (task.isSuccessful){
-
-                    val currentUser = mAuth.currentUser!!
-
-                    currentUser.sendEmailVerification().addOnCompleteListener { task2 ->
-
-                        if (task2.isSuccessful){
-                            Toast.makeText(this, "Verification Email Sent!", Toast.LENGTH_SHORT).show()
-                            finish()
-                        }else{
-                            Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }else{
-                    Toast.makeText(this, "Network Error!", Toast.LENGTH_SHORT).show()
-                }
+        //sharedPreference :add data
+        val editor = sharedPref.edit()
+        val gson = Gson()
+        val json = gson.toJson(AccountData(userName, pass))
+        editor.putString("accountData", json)
+        editor.apply().also {
+            if (sharedPref.getString("accountData", "empty") != "empty"){
+                Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
+                finish()
             }
+        }
     }
 }

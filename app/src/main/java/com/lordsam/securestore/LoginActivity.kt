@@ -1,36 +1,41 @@
 package com.lordsam.securestore
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import java.lang.Exception
+import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.lordsam.securestore.dataclass.AccountData
 
 class LoginActivity : AppCompatActivity() {
 //sam
-    private lateinit var edtEmail: EditText
+    private lateinit var edtUsername: EditText
     private lateinit var edtPass: EditText
     private lateinit var btnLogin: Button
-    private lateinit var mAuth: FirebaseAuth
-    private var user: FirebaseUser? = null
+    private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        mAuth = FirebaseAuth.getInstance()
+        sharedPref = getSharedPreferences("CreateAccount", MODE_PRIVATE)
 
-        edtEmail = findViewById(R.id.editTextLoginEmail)
+        edtUsername = findViewById(R.id.editTextLoginUsername)
         edtPass = findViewById(R.id.editTextLoginPass)
         btnLogin = findViewById(R.id.buttonLogin)
 
         try {
-            user = mAuth.currentUser!!
-            if (user == null) {
+            //sharedPreference :load data
+            val gson = Gson()
+            val json = sharedPref.getString("accountData", "empty")
+            val type  = object: TypeToken<AccountData>(){}.type
+            val data = gson.fromJson<AccountData>(json, type)
+
+            if (data == null) {
                 startActivity(Intent(this, CreateAccountActivity::class.java))
             }
         } catch (ex: Exception) {
@@ -47,9 +52,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun validateData() {
         when {
-            edtEmail.text.toString().isEmpty() -> {
+            edtUsername.text.toString().isEmpty() -> {
                 Toast.makeText(this, "Please Fill Username!", Toast.LENGTH_SHORT).show()
-                edtEmail.requestFocus()
+                edtUsername.requestFocus()
             }
             edtPass.text.toString().isEmpty() -> {
                 Toast.makeText(this, "Please Fill Password!", Toast.LENGTH_SHORT).show()
@@ -59,29 +64,25 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Password Too Small!", Toast.LENGTH_SHORT).show()
             }
             else -> {
-                login(edtEmail.text.toString().trim(), edtPass.text.toString().trim())
+                login(edtUsername.text.toString().trim(), edtPass.text.toString().trim())
             }
         }
     }
 
-    private fun login(email: String, pass: String) {
+    private fun login(userName: String, pass: String) {
+        val gson = Gson()
+        val json = sharedPref.getString("accountData", "empty")
+        val type  = object: TypeToken<AccountData>(){}.type
+        val data = gson.fromJson<AccountData>(json, type)
 
-        mAuth.signInWithEmailAndPassword(email, pass)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    if (user == null) {
-                        Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, MainActivity::class.java))
-                    } else if (user!!.isEmailVerified && user != null) {
-                        Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, MainActivity::class.java))
-                    } else {
-                        Toast.makeText(this, "Please verify your email!", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                } else {
-                    Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
-                }
-            }
+        val getUsername = data.email
+        val getPass = data.pass
+
+        if ((getUsername == userName) && (getPass == pass)){
+            Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, MainActivity::class.java))
+        }else{
+            Toast.makeText(this, "Invalid credentials!", Toast.LENGTH_SHORT).show()
+        }
     }
 }

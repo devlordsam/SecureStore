@@ -3,13 +3,14 @@ package com.lordsam.securestore
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.BaseAdapter
+import android.widget.ListView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.lordsam.securestore.dataclass.DataListView
 import kotlinx.android.synthetic.main.card_view.view.*
 
