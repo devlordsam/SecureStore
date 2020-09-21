@@ -82,10 +82,15 @@ class AdharActivity : AppCompatActivity() {
         val jsonGet = sharedPref.getString("adharData", "empty")
         val type  = object: TypeToken<ArrayList<AdharData>>(){}.type
         val gson = Gson()
-        val jsonData = gson.fromJson<ArrayList<AdharData>>(jsonGet, type)
-        arrayOfAdhar.clear()
-        arrayOfAdhar= jsonData
-        listViewAdhar.adapter = ListViewAdharAdapter(this, arrayOfAdhar)
-        listViewAdhar.deferNotifyDataSetChanged()
+
+        try {
+            val jsonData = gson.fromJson<ArrayList<AdharData>>(jsonGet, type)
+            arrayOfAdhar.clear()
+            arrayOfAdhar = jsonData
+            listViewAdhar.adapter = ListViewAdharAdapter(this, arrayOfAdhar)
+            listViewAdhar.deferNotifyDataSetChanged()
+        }catch (ex :Exception){
+            ex.printStackTrace()
+        }
     }
 }

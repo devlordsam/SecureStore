@@ -81,10 +81,15 @@ class CreditDebitCardActivity : AppCompatActivity() {
         val jsonGet = sharedPref.getString("creditDebitCardData", "empty")
         val type  = object: TypeToken<ArrayList<CreditDebitData>>(){}.type
         val gson = Gson()
-        val jsonData = gson.fromJson<ArrayList<CreditDebitData>>(jsonGet, type)
-        arrayOfCards.clear()
-        arrayOfCards = jsonData
-        listViewCD.adapter = ListViewCreditDebitAdapter(this, arrayOfCards)
-        listViewCD.deferNotifyDataSetChanged()
+
+        try {
+            val jsonData = gson.fromJson<ArrayList<CreditDebitData>>(jsonGet, type)
+            arrayOfCards.clear()
+            arrayOfCards = jsonData
+            listViewCD.adapter = ListViewCreditDebitAdapter(this, arrayOfCards)
+            listViewCD.deferNotifyDataSetChanged()
+        }catch (ex: Exception){
+            ex.printStackTrace()
+        }
     }
 }
