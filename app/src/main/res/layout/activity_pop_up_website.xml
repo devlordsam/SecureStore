@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context="com.lordsam.securestore.PopUpWebsiteActivity">
+
+    <EditText
+        android:id="@+id/editTextPUWUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:autofillHints="Sam Smith"
+        android:hint="Website Url"
+        android:inputType="text"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextPUWloginId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:autofillHints="Sam Smith"
+        android:hint="Login Id"
+        android:inputType="number"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextPUWPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:autofillHints="Sam Smith"
+        android:hint="Password"
+        android:inputType="number"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonPUWSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+</LinearLayout>

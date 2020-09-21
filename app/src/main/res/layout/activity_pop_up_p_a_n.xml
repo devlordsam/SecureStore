@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lordsam.securestore.PopUpPANActivity">
+
+    <EditText
+        android:id="@+id/editTextPUPANName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:autofillHints="Sam Smith"
+        android:hint="@string/holder_name"
+        android:inputType="text"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextPUPANNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:autofillHints="Sam Smith"
+        android:hint="PAN Number"
+        android:inputType="number"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextPUPANFather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:autofillHints="Sam Smith"
+        android:hint="Father Name"
+        android:inputType="number"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextPUPANTyper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:autofillHints="Sam Smith"
+        android:hint="PAN Type"
+        android:inputType="number"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonPUPANSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+</LinearLayout>
