@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +15,7 @@
         tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/cardAdharTVName"
+            android:id="@+id/textViewCAName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -21,7 +23,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/cardAdharTVFName"
+            android:id="@+id/textViewCAFatherName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -29,7 +31,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/cardAdharTVAddress"
+            android:id="@+id/textViewCAAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
@@ -39,7 +41,7 @@
             tools:ignore="TextViewEdits" />
 
         <TextView
-            android:id="@+id/cardAdharTVMNo"
+            android:id="@+id/textViewCAMobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -47,43 +49,12 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/cardAdharTVNumber"
+            android:id="@+id/textViewCAAdharNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/adhar_number"
             android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/cardAdharBtnDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/btn_style"
-                android:gravity="center"
-                android:padding="15dp"
-                android:text="@string/delete" />
-
-            <Button
-                android:id="@+id/cardAdharBtnShare"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/btn_style"
-                android:gravity="center"
-                android:padding="15dp"
-                android:text="@string/share" />
-            <Button
-                android:id="@+id/cardAdharBtnEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/btn_style"
-                android:gravity="center"
-                android:padding="15dp"
-                android:text="Edit" />
-        </LinearLayout>
 
     </LinearLayout>
 
