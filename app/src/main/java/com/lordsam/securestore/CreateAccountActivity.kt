@@ -11,6 +11,7 @@ import com.lordsam.securestore.dataclass.AccountData
 
 class CreateAccountActivity : AppCompatActivity() {
 //sam
+
     private lateinit var edtUsername: EditText
     private lateinit var edtPass1: EditText
     private lateinit var edtPass2: EditText
