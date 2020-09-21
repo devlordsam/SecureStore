@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.lordsam.securestore.AdharDetailAdd">
+
+    <EditText
+        android:id="@+id/addAdharETName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:hint="@string/name"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/addAdharETFName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:hint="@string/father_name" />
+
+    <EditText
+        android:id="@+id/addAdharETAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/address"
+        android:padding="15dp"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/addAdharETMobile"
+        android:layout_width="match_parent"
+        android:padding="15dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:hint="@string/mobile_number" />
+
+    <EditText
+        android:id="@+id/addAdharETNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:hint="@string/adhar_number" />
+
+    <Button
+        android:id="@+id/addAdharBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="@string/add"
+        android:background="@drawable/btn_style"/>
+</LinearLayout>

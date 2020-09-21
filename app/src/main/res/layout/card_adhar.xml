@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_style"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/cardAdharTVName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/name"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/cardAdharTVFName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/father_name"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/cardAdharTVAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:padding="10dp"
+            android:text="@string/address"
+            android:textSize="20sp"
+            tools:ignore="TextViewEdits" />
+
+        <TextView
+            android:id="@+id/cardAdharTVMNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/mobile_number"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/cardAdharTVNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/adhar_number"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/cardAdharBtnDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_style"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="@string/delete" />
+
+            <Button
+                android:id="@+id/cardAdharBtnShare"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_style"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="@string/share" />
+            <Button
+                android:id="@+id/cardAdharBtnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_style"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="Edit" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

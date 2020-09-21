@@ -17,6 +17,19 @@
     <string name="expiry_year">Expiry year</string>
     <string name="cvv">CVV</string>
     <string name="save">Save</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="address">Address</string>
+    <string name="adhar_number">Adhar Number</string>
+    <string name="father_name">Father Name</string>
+    <string name="name">Name</string>
+    <string name="delete">Delete</string>
+    <string name="share">share</string>
+    <string name="name">Name</string>
+    <string name="father_name">Father Name</string>
+    <string name="address">Address</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="adhar_number">Adhar Number</string>
+    <string name="add">Add</string>
     <string-array name="cardTypes">
         <item>Maestro Card</item>
         <item>Visa Card</item>

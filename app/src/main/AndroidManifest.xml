@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopUpCreditDebitActivity"
-            android:theme="@style/Dialog"/>
+        <activity android:name=".AdharDetailAdd"></activity>
+        <activity
+            android:name=".PopUpCreditDebitActivity"
+            android:theme="@style/Dialog" />
         <activity android:name=".CreditDebitCardActivity" />
         <activity android:name=".AdharActivity" />
         <activity android:name=".EmailPasswordActivity" />
