@@ -3,17 +3,15 @@ package com.lordsam.securestore
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
 import android.widget.BaseAdapter
 import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lordsam.securestore.dataclass.AdharData
-import com.lordsam.securestore.dataclass.CreditDebitData
 import kotlinx.android.synthetic.main.card_adhar.view.*
-import kotlinx.android.synthetic.main.card_cards.view.*
 
 class AdharActivity : AppCompatActivity() {
 

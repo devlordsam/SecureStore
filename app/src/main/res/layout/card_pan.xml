@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -15,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Name"
+            android:text="@string/name"
             android:textSize="20sp" />
 
         <TextView
@@ -23,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="PAN Number"
+            android:text="@string/pan_number"
             android:textSize="20sp" />
 
         <TextView
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="PAN Type"
+            android:text="@string/pan_type"
             android:textSize="20sp" />
     </LinearLayout>
 

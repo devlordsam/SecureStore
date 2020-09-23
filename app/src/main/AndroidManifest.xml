@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".PopUpEmailPasswordActivity"
             android:theme="@style/Dialog"/>
-        <activity android:name=".PopUpPANActivity" />
+        <activity android:name=".PopUpPANActivity"
+            android:theme="@style/Dialog"/>
         <activity android:name=".PopUpWebsiteActivity" />
         <activity
             android:name=".PopUpAdharActivity"

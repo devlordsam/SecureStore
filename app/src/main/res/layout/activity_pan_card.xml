@@ -8,7 +8,7 @@
     tools:context=".PanCardActivity">
 
     <ListView
-        android:id="@+id/pancardLV"
+        android:id="@+id/listViewPAN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
