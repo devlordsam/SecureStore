@@ -85,7 +85,6 @@ class AdharActivity : AppCompatActivity() {
 
         try {
             val jsonData = gson.fromJson<ArrayList<AdharData>>(jsonGet, type)
-            arrayOfAdhar.clear()
             arrayOfAdhar = jsonData
             listViewAdhar.adapter = ListViewAdharAdapter(this, arrayOfAdhar)
             listViewAdhar.deferNotifyDataSetChanged()

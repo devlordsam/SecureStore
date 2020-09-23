@@ -63,7 +63,6 @@ class PopUpEmailPasswordActivity : AppCompatActivity() {
                 jsonData.add(data)
 
                 val editor = sharedPref.edit()
-                arrayOfEP.add(data)
                 val jsonPut = gson.toJson(jsonData)
                 editor.putString("emailPasswordData", jsonPut)
                 editor.apply().also {

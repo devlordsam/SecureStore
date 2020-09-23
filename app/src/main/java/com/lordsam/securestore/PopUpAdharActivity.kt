@@ -73,7 +73,6 @@ class PopUpAdharActivity : AppCompatActivity() {
                 jsonData.add(data)
 
                 val editor = sharedPref.edit()
-                arrayOfAdhar.add(data)
                 val jsonPut = gson.toJson(jsonData)
                 editor.putString("adharData", jsonPut)
                 editor.apply().also {

@@ -83,7 +83,6 @@ class EmailPasswordActivity : AppCompatActivity() {
 
         try {
             val jsonData = gson.fromJson<ArrayList<EmailPasswordData>>(jsonGet, type)
-            arrayOfEP.clear()
             arrayOfEP = jsonData
             listViewEP.adapter = ListViewEmailPasswordAdapter(this, arrayOfEP)
             listViewEP.deferNotifyDataSetChanged()

@@ -84,7 +84,6 @@ class CreditDebitCardActivity : AppCompatActivity() {
 
         try {
             val jsonData = gson.fromJson<ArrayList<CreditDebitData>>(jsonGet, type)
-            arrayOfCards.clear()
             arrayOfCards = jsonData
             listViewCD.adapter = ListViewCreditDebitAdapter(this, arrayOfCards)
             listViewCD.deferNotifyDataSetChanged()

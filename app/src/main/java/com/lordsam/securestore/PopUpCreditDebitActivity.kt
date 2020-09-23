@@ -76,7 +76,6 @@ class PopUpCreditDebitActivity : AppCompatActivity() {
                 jsonData.add(data)
 
                 val editor = sharedPref.edit()
-                arrayOfCards.add(data)
                 val jsonPut = gson.toJson(jsonData)
                 editor.putString("creditDebitCardData", jsonPut)
                 editor.apply().also {
