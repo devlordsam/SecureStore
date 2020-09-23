@@ -23,7 +23,6 @@
     <string name="delete">Delete</string>
     <string name="share">share</string>
     <string name="add">Add</string>
-    <string name="father_name">Father Name</string>
     <string-array name="cardTypes">
         <item>Maestro Card</item>
         <item>Visa Card</item>
