@@ -1,5 +1,6 @@
 package com.lordsam.securestore
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -48,6 +49,7 @@ class AdharActivity : AppCompatActivity() {
             return p0.toLong()
         }
 
+        @SuppressLint("ViewHolder")
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             val card = arrOfAdhar[p0]
             val inflater = ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

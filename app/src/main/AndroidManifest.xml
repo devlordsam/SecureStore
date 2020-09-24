@@ -9,12 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopUpEmailPasswordActivity"
-            android:theme="@style/Dialog"/>
-        <activity android:name=".PopUpPANActivity"
-            android:theme="@style/Dialog"/>
-        <activity android:name=".PopUpWebsiteActivity"
-            android:theme="@style/Dialog"/>
+        <activity android:name=".PopUpPassportActivity"></activity>
+        <activity
+            android:name=".PopUpEmailPasswordActivity"
+            android:theme="@style/Dialog" />
+        <activity
+            android:name=".PopUpPANActivity"
+            android:theme="@style/Dialog" />
+        <activity
+            android:name=".PopUpWebsiteActivity"
+            android:theme="@style/Dialog" />
         <activity
             android:name=".PopUpAdharActivity"
             android:theme="@style/Dialog" />

@@ -25,6 +25,10 @@
     <string name="add">Add</string>
     <string name="pan_number">PAN Number</string>
     <string name="pan_type">PAN Type</string>
+    <string name="passport_no">Passport No</string>
+    <string name="address">Address</string>
+    <string name="nationality">Nationality</string>
+    <string name="name">Name</string>
     <string-array name="cardTypes">
         <item>Maestro Card</item>
         <item>Visa Card</item>
