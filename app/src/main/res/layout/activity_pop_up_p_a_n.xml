@@ -35,8 +35,9 @@
         android:layout_marginBottom="4dp"
         android:autofillHints="Sam Smith"
         android:hint="@string/pan_number"
-        android:inputType="number"
-        android:textSize="16sp" />
+        android:inputType="text"
+        android:textSize="16sp"
+        tools:ignore="TextFields" />
 
     <EditText
         android:id="@+id/editTextPUPANType"

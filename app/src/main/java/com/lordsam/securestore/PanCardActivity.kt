@@ -31,7 +31,7 @@ class PanCardActivity : AppCompatActivity() {
         loadData()
     }
 
-    class ListViewCreditDebitAdapter(private val ctx : Context, val arrOfPAN: ArrayList<PANData>): BaseAdapter(){
+    class ListViewCreditDebitAdapter(private val ctx : Context, private val arrOfPAN: ArrayList<PANData>): BaseAdapter(){
         override fun getCount(): Int {
             return arrOfPAN.size
         }
@@ -50,7 +50,7 @@ class PanCardActivity : AppCompatActivity() {
             val view = inflater.inflate(R.layout.card_pan, null)
             view.textViewCPANName.text = card.holder
             view.textViewCPANFather.text = card.fatherName
-            view.textViewCPANNumber.text = card.number.toString()
+            view.textViewCPANNumber.text = card.number
             view.textViewCPANType.text = card.type
 
             return view

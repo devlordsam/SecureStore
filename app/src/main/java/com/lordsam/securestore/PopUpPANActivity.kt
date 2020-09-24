@@ -42,7 +42,7 @@ class PopUpPANActivity : AppCompatActivity() {
     private fun saveData() {
         val name = edtName.text.toString()
         val fatherName = edtFatherName.text.toString()
-        val number = edtPANNumber.text.toString().toLong()
+        val number = edtPANNumber.text.toString()
         val typePAN = edtPANType.text.toString()
         val data = PANData(name, fatherName, number, typePAN)
 

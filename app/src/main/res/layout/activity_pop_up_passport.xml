@@ -34,7 +34,7 @@
         android:layout_marginBottom="4dp"
         android:autofillHints="Sam Smith"
         android:hint="@string/address"
-        android:inputType="number"
+        android:inputType="text"
         android:textSize="16sp" />
 
     <EditText
