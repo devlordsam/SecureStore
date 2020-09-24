@@ -11,11 +11,11 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewCWuRL"
+            android:id="@+id/textViewCWURL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Url"
+            android:text="URL"
             android:textSize="20sp" />
 
         <TextView

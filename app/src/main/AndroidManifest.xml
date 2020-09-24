@@ -13,7 +13,8 @@
             android:theme="@style/Dialog"/>
         <activity android:name=".PopUpPANActivity"
             android:theme="@style/Dialog"/>
-        <activity android:name=".PopUpWebsiteActivity" />
+        <activity android:name=".PopUpWebsiteActivity"
+            android:theme="@style/Dialog"/>
         <activity
             android:name=".PopUpAdharActivity"
             android:theme="@style/Dialog" />
