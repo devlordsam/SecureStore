@@ -38,11 +38,44 @@ class PopUpAdharActivity : AppCompatActivity() {
         btnSave = findViewById(R.id.buttonPUAASave)
 
         btnSave.setOnClickListener {
-            saveData()
+            validate()
         }
     }
 
-    private fun saveData() {
+    private fun validate(){
+
+        when {
+            edtName.text.toString().isEmpty() -> {
+                toast("Username")
+                edtName.requestFocus()
+            }
+            edtFatherName.text.toString().isEmpty() -> {
+                toast("Father's Name")
+                edtFatherName.requestFocus()
+            }
+            edtAddress.text.toString().isEmpty() -> {
+                toast("Address")
+                edtAddress.requestFocus()
+            }
+            edtMobile.text.toString().isEmpty() -> {
+                toast("Mobile Number")
+                edtMobile.requestFocus()
+            }
+            edtAdharNumber.text.toString().isEmpty() -> {
+                toast("Adhar Number")
+                edtAdharNumber.requestFocus()
+            }
+            else -> {
+                saveData()
+            }
+        }
+    }
+
+    private fun toast(msg: String){
+        Toast.makeText(this, "Please fill $msg!", Toast.LENGTH_SHORT).show()
+    }
+
+            private fun saveData() {
         val name = edtName.text.toString()
         val fatherName = edtFatherName.text.toString()
         val address = edtAddress.text.toString()
@@ -86,4 +119,6 @@ class PopUpAdharActivity : AppCompatActivity() {
             ex.printStackTrace()
         }
     }
+
+
 }

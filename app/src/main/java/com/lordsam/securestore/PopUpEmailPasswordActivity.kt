@@ -31,8 +31,29 @@ class PopUpEmailPasswordActivity : AppCompatActivity() {
         btnSave = findViewById(R.id.buttonPUEPSave)
 
         btnSave.setOnClickListener {
-            saveData()
+            validate()
         }
+    }
+
+    private fun validate(){
+
+        when {
+            edtEmail.text.toString().isEmpty() -> {
+                toast("Email")
+                edtEmail.requestFocus()
+            }
+            edtPass.text.toString().isEmpty() -> {
+                toast("Password")
+                edtPass.requestFocus()
+            }
+            else -> {
+                saveData()
+            }
+        }
+    }
+
+    private fun toast(msg: String){
+        Toast.makeText(this, "Please fill $msg!", Toast.LENGTH_SHORT).show()
     }
 
     private fun saveData() {

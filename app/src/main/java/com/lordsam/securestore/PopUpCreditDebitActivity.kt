@@ -39,8 +39,41 @@ class PopUpCreditDebitActivity : AppCompatActivity() {
         btnSave = findViewById(R.id.buttonPUCDSave)
 
         btnSave.setOnClickListener {
-            saveData()
+            validate()
         }
+    }
+
+    private fun validate(){
+
+        when {
+            edtHolder.text.toString().isEmpty() -> {
+                toast("Holder Name")
+                edtHolder.requestFocus()
+            }
+            edtAccount.text.toString().isEmpty() -> {
+                toast("Account Number")
+                edtAccount.requestFocus()
+            }
+            edtExMonth.text.toString().isEmpty() -> {
+                toast("Expiry Month")
+                edtExMonth.requestFocus()
+            }
+            edtExYear.text.toString().isEmpty() -> {
+                toast("Expiry Year")
+                edtExYear.requestFocus()
+            }
+            edtCvv.text.toString().isEmpty() -> {
+                toast("CVV Number")
+                edtCvv.requestFocus()
+            }
+            else -> {
+                saveData()
+            }
+        }
+    }
+
+    private fun toast(msg: String){
+        Toast.makeText(this, "Please fill $msg!", Toast.LENGTH_SHORT).show()
     }
 
     private fun saveData() {

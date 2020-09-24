@@ -35,8 +35,37 @@ class PopUpPANActivity : AppCompatActivity() {
         btnSave = findViewById(R.id.buttonPUPANSave)
 
         btnSave.setOnClickListener {
-            saveData()
+            validate()
         }
+    }
+
+    private fun validate(){
+
+        when {
+            edtName.text.toString().isEmpty() -> {
+                toast("Holder Name")
+                edtName.requestFocus()
+            }
+            edtFatherName.text.toString().isEmpty() -> {
+                toast("Father's Name")
+                edtFatherName.requestFocus()
+            }
+            edtPANNumber.text.toString().isEmpty() -> {
+                toast("PAN Number")
+                edtPANNumber.requestFocus()
+            }
+            edtPANType.text.toString().isEmpty() -> {
+                toast("PAN Type")
+                edtPANType.requestFocus()
+            }
+            else -> {
+                saveData()
+            }
+        }
+    }
+
+    private fun toast(msg: String){
+        Toast.makeText(this, "Please fill $msg!", Toast.LENGTH_SHORT).show()
     }
 
     private fun saveData() {

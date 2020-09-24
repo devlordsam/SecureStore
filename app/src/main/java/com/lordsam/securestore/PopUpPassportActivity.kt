@@ -35,8 +35,37 @@ class PopUpPassportActivity : AppCompatActivity() {
         btnSave = findViewById(R.id.buttonPUPassportSave)
 
         btnSave.setOnClickListener {
-            saveData()
+            validate()
         }
+    }
+
+    private fun validate(){
+
+        when {
+            edtName.text.toString().isEmpty() -> {
+                toast("Holder Name")
+                edtName.requestFocus()
+            }
+            edtNationality.text.toString().isEmpty() -> {
+                toast("Nationality")
+                edtNationality.requestFocus()
+            }
+            edtAddress.text.toString().isEmpty() -> {
+                toast("Address")
+                edtAddress.requestFocus()
+            }
+            edtPassportNumber.text.toString().isEmpty() -> {
+                toast("Passport Number")
+                edtPassportNumber.requestFocus()
+            }
+            else -> {
+                saveData()
+            }
+        }
+    }
+
+    private fun toast(msg: String){
+        Toast.makeText(this, "Please fill $msg!", Toast.LENGTH_SHORT).show()
     }
 
     private fun saveData() {

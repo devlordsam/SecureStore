@@ -33,8 +33,33 @@ class PopUpWebsiteActivity : AppCompatActivity() {
         btnSave = findViewById(R.id.buttonPUWSave)
 
         btnSave.setOnClickListener {
-            saveData()
+            validate()
         }
+    }
+
+    private fun validate(){
+
+        when {
+            edtURL.text.toString().isEmpty() -> {
+                toast("URL")
+                edtURL.requestFocus()
+            }
+            edtUserID.text.toString().isEmpty() -> {
+                toast("User ID")
+                edtUserID.requestFocus()
+            }
+            edtPass.text.toString().isEmpty() -> {
+                toast("Password")
+                edtPass.requestFocus()
+            }
+            else -> {
+                saveData()
+            }
+        }
+    }
+
+    private fun toast(msg: String){
+        Toast.makeText(this, "Please fill $msg!", Toast.LENGTH_SHORT).show()
     }
 
     private fun saveData() {
