@@ -14,7 +14,9 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:hint="@string/name"
+        android:background="@drawable/upper_corner_blue"
         android:textSize="15sp"
+        android:textColor="@color/colorAccent"
         android:textStyle="bold"/>
 
     <EditText
@@ -22,6 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
+        android:background="@color/darkBlue"
+        android:textColor="@color/colorAccent"
         android:textSize="15sp"
         android:textStyle="bold"
         android:hint="@string/father_name" />
@@ -33,6 +37,8 @@
         android:hint="@string/address"
         android:padding="15dp"
         android:textStyle="bold"
+        android:background="@color/darkBlue"
+        android:textColor="@color/colorAccent"
         android:textSize="15sp"/>
 
     <EditText
@@ -41,6 +47,8 @@
         android:padding="15dp"
         android:textSize="15sp"
         android:inputType="number"
+        android:background="@color/darkBlue"
+        android:textColor="@color/colorAccent"
         android:textStyle="bold"
         android:layout_height="wrap_content"
         android:hint="@string/mobile_number" />
@@ -50,6 +58,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
+        android:background="@drawable/lower_corner_blue"
+        android:textColor="@color/colorAccent"
         android:textStyle="bold"
         android:inputType="number"
         android:textSize="15sp"
@@ -59,8 +69,10 @@
         android:id="@+id/buttonPUAASave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:padding="12dp"
         android:text="@string/save"
+        android:textColor="@color/darkBlue"
         android:background="@drawable/btn_style"/>
 
 </LinearLayout>

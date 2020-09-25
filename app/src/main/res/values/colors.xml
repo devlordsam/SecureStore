@@ -6,4 +6,10 @@
     <color name="button1">#444444</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <!--mathematical combine color-->
+    <color name="darkPink">#bf1736</color>
+    <color name="darkBlue">#0d1440</color>
+    <color name="blurBlue">#1438a6</color>
+    <color name="neviBlue">#0e2773</color>
+    <color name="blurSky">#1455d9</color>
 </resources>

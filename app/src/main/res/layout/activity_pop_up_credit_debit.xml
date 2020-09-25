@@ -13,7 +13,11 @@
         android:id="@+id/editTextPUCDHolderName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:background="@drawable/upper_corner_blue"
+        android:textColor="@color/colorAccent"
+        android:padding="3dp"
+        android:paddingTop="2dp"
+        android:layout_marginBottom="0dp"
         android:autofillHints="Sam Smith"
         android:hint="@string/holder_name"
         android:inputType="text"
@@ -23,8 +27,12 @@
         android:id="@+id/editTextPUCDAccountNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="0dp"
         android:autofillHints="Sam Smith"
+        android:padding="3dp"
+        android:paddingTop="2dp"
+        android:background="@color/darkBlue"
+        android:textColor="@color/colorAccent"
         android:hint="@string/account_number"
         android:inputType="number"
         android:textSize="16sp" />
@@ -32,7 +40,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="0dp"
         android:orientation="horizontal">
 
 
@@ -41,6 +49,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/darkBlue"
+            android:textColor="@color/colorAccent"
+            android:padding="3dp"
+            android:paddingTop="2dp"
             android:autofillHints="Sam Smith"
             android:hint="@string/expiry_month"
             android:inputType="number"
@@ -51,6 +63,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="3dp"
+            android:paddingTop="2dp"
+            android:background="@color/darkBlue"
+            android:textColor="@color/colorAccent"
             android:autofillHints="Sam Smith"
             android:hint="@string/expiry_year"
             android:inputType="number"
@@ -60,7 +76,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="0dp"
         android:orientation="horizontal">
 
 
@@ -70,7 +86,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:autofillHints="Sam Smith"
+            android:padding="3dp"
+            android:paddingTop="2dp"
             android:hint="@string/cvv"
+            android:background="@drawable/bottom_left_corner_dark"
+            android:textColor="@color/colorAccent"
             android:inputType="number"
             android:textSize="16sp" />
 
@@ -80,6 +100,9 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
             android:entries="@array/cardTypes"
+            android:padding="3dp"
+            android:paddingTop="2dp"
+            android:background="@drawable/bottom_right_corner_dark"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:textSize="16sp" />
@@ -90,6 +113,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/darkBlue"
+        android:background="@drawable/btn_style"
         android:textAllCaps="false"
         android:textSize="16sp" />
 
