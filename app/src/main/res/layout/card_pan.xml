@@ -11,36 +11,103 @@
         android:background="@drawable/layout_style"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewCPANName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/name"
-            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textViewCPANNumber"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/pan_number"
-            android:textSize="20sp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textViewCPANFather"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/name_"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewCPANName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/name"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/father_name"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/textViewCPANType"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/pan_number_"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewCPANNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:text="@string/pan_number"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/pan_type"
-            android:textSize="20sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/father_s_name_"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewCPANFather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:text="@string/father_name"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/pan_type_"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewCPANType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:text="@string/pan_type"
+                android:textSize="20sp" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

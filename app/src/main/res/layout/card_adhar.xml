@@ -14,47 +14,128 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-        <TextView
-            android:id="@+id/textViewCAName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/name"
-            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textViewCAFatherName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/father_name"
-            android:textSize="20sp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textViewCAAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:padding="10dp"
-            android:text="@string/address"
-            android:textSize="20sp"
-            tools:ignore="TextViewEdits" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/name_"
+                android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/textViewCAMobile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/mobile_number"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textViewCAName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="@string/name"
+                android:textSize="20sp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/textViewCAAdharNumber"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/adhar_number"
-            android:textSize="20sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/father_s_name_"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewCAFatherName"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/father_name"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/address_"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewCAAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="@string/address"
+                android:textSize="20sp"
+                tools:ignore="TextViewEdits" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/mobile_"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewCAMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:text="@string/mobile_number"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="@string/adhar_number_"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewCAAdharNumber"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/adhar_number"
+                android:textSize="20sp" />
+        </LinearLayout>
 
     </LinearLayout>
 

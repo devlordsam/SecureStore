@@ -2,7 +2,6 @@
     <string name="app_name">Secure Store</string>
     <string name="e_mail">E-Mail</string>
     <string name="mobile_number">Mobile Number</string>
-    <string name="password">Password</string>
     <string name="re_enter_password">Re-Password</string>
     <string name="create_account">Create Account</string>
     <string name="login">Login</string>
@@ -14,7 +13,6 @@
     <string name="account_number">Account Number</string>
     <string name="expiry_month">Expiry Month</string>
     <string name="expiry_year">Expiry year</string>
-    <string name="cvv">CVV</string>
     <string name="save">Save</string>
     <string name="address">Address</string>
     <string name="adhar_number">Adhar Number</string>
@@ -27,6 +25,31 @@
     <string name="pan_type">PAN Type</string>
     <string name="passport_no">Passport No</string>
     <string name="nationality">Nationality</string>
+    <string name="name_">Name :</string>
+    <string name="adhar_number_">Adhar Number :</string>
+    <string name="mobile_">Mobile :</string>
+    <string name="address_">Address :</string>
+    <string name="father_s_name_">Father\'s Name :</string>
+    <string name="acc_no">Acc No. :</string>
+    <string name="month">Month</string>
+    <string name="month_">Month :</string>
+    <string name="year">Year</string>
+    <string name="year_">Year :</string>
+    <string name="holder_">Holder :</string>
+    <string name="cvv">CVV</string>
+    <string name="cvv_">CVV :</string>
+    <string name="card_type">Card Type</string>
+    <string name="e_mail_">E-mail :</string>
+    <string name="password_">Password :</string>
+    <string name="pan_number_">PAN Number :</string>
+    <string name="pan_type_">PAN Type :</string>
+    <string name="nationality_">Nationality :</string>
+    <string name="passport_no_">Passport No. :</string>
+    <string name="url">URL</string>
+    <string name="url_">URL :</string>
+    <string name="login_id_">Login ID :</string>
+    <string name="login_id">Login ID</string>
+    <string name="password">Password</string>
     <string-array name="cardTypes">
         <item>Maestro Card</item>
         <item>Visa Card</item>

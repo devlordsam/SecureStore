@@ -11,9 +11,7 @@ import android.widget.ListView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lordsam.securestore.dataclass.PassportData
-import com.lordsam.securestore.dataclass.WebsiteData
 import kotlinx.android.synthetic.main.card_passport.view.*
-import kotlinx.android.synthetic.main.card_website.view.*
 
 class PassportActivity : AppCompatActivity() {
 
@@ -48,10 +46,10 @@ class PassportActivity : AppCompatActivity() {
             val card = arrOfPP[p0]
             val inflater = ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val view = inflater.inflate(R.layout.card_passport, null)
-            view.textviewCPassportName.text = card.username
-            view.textviewCPassportNationality.text = card.nationality
-            view.textviewCPassportAddress.text = card.address
-            view.textviewCPassportNumber.text = card.passportNumber
+            view.textViewCPassportName.text = card.username
+            view.textViewCPassportNationality.text = card.nationality
+            view.textViewCPassportAddress.text = card.address
+            view.textViewCPassportNumber.text = card.passportNumber
 
             return view
         }
