@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.BaseAdapter
 import android.widget.ListView
+import androidx.appcompat.app.AlertDialog
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lordsam.securestore.dataclass.CreditDebitData
@@ -31,7 +32,7 @@ class PanCardActivity : AppCompatActivity() {
         loadData()
     }
 
-    class ListViewCreditDebitAdapter(private val ctx : Context, private val arrOfPAN: ArrayList<PANData>): BaseAdapter(){
+    inner class ListViewCreditDebitAdapter(private val ctx : Context, private val arrOfPAN: ArrayList<PANData>): BaseAdapter(){
         override fun getCount(): Int {
             return arrOfPAN.size
         }
@@ -52,6 +53,18 @@ class PanCardActivity : AppCompatActivity() {
             view.textViewCPANFather.text = card.fatherName
             view.textViewCPANNumber.text = card.number
             view.textViewCPANType.text = card.type
+            view.setOnLongClickListener(View.OnLongClickListener {
+
+                dialog(
+                    ctx,
+                    card.holder,
+                    card.fatherName,
+                    card.number,
+                    card.type,
+                    p0
+                )
+                return@OnLongClickListener false
+            })
 
             return view
         }
@@ -89,6 +102,63 @@ class PanCardActivity : AppCompatActivity() {
             listViewPAN.adapter = ListViewCreditDebitAdapter(this, arrayOfPAN)
             listViewPAN.deferNotifyDataSetChanged()
         }catch (ex: Exception){
+            ex.printStackTrace()
+        }
+    }
+
+    private fun dialog(
+        ctx: Context,
+        holder: String,
+        fatherName: String,
+        number: String,
+        type: String,
+        index :Int
+    ) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Choose an action!")
+            .setCancelable(false)
+            .setPositiveButton(
+                "Edit"
+            ) { dialog, id ->
+
+                delete(ctx, index)
+
+                val intent = Intent(ctx, PopUpPANActivity::class.java)
+                intent.putExtra("holder", holder)
+                intent.putExtra("fatherName", fatherName)
+                intent.putExtra("number", number)
+                intent.putExtra("type", type)
+                startActivity(intent)
+            }
+            .setNegativeButton(
+                "Delete"
+            ) { dialog, id ->
+                delete(ctx, index)
+                dialog.cancel()
+            }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private fun delete(
+        ctx: Context,
+        index :Int
+    ) {
+        val jsonGet = sharedPref.getString("PANData", "empty")
+        val type = object : TypeToken<ArrayList<PANData>>() {}.type
+        val gson = Gson()
+
+        try {
+            val jsonData = gson.fromJson<ArrayList<PANData>>(jsonGet, type)
+            jsonData.removeAt(index)
+            val editor = sharedPref.edit()
+            val jsonPut = gson.toJson(jsonData)
+            editor.putString("PANData", jsonPut)
+            editor.apply()
+
+            listViewPAN.adapter = ListViewCreditDebitAdapter(ctx, jsonData)
+            listViewPAN.deferNotifyDataSetChanged()
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
     }

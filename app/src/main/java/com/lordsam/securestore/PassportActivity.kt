@@ -8,8 +8,10 @@ import android.os.Bundle
 import android.view.*
 import android.widget.BaseAdapter
 import android.widget.ListView
+import androidx.appcompat.app.AlertDialog
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.lordsam.securestore.dataclass.CreditDebitData
 import com.lordsam.securestore.dataclass.PassportData
 import kotlinx.android.synthetic.main.card_passport.view.*
 
@@ -29,7 +31,7 @@ class PassportActivity : AppCompatActivity() {
         loadData()
     }
 
-    class ListViewPassportAdapter(private val ctx : Context, private val arrOfPP: ArrayList<PassportData>): BaseAdapter(){
+   inner class ListViewPassportAdapter(private val ctx : Context, private val arrOfPP: ArrayList<PassportData>): BaseAdapter(){
         override fun getCount(): Int {
             return arrOfPP.size
         }
@@ -50,6 +52,17 @@ class PassportActivity : AppCompatActivity() {
             view.textViewCPassportNationality.text = card.nationality
             view.textViewCPassportAddress.text = card.address
             view.textViewCPassportNumber.text = card.passportNumber
+            view.setOnLongClickListener(View.OnLongClickListener {
+            dialog(
+                ctx,
+                card.username,
+                card.nationality,
+                card.address,
+                card.passportNumber,
+                p0
+            )
+            return@OnLongClickListener false
+        })
 
             return view
         }
@@ -87,6 +100,63 @@ class PassportActivity : AppCompatActivity() {
             listViewPP.adapter = ListViewPassportAdapter(this, arrayOfPP)
             listViewPP.deferNotifyDataSetChanged()
         }catch (ex: Exception){
+            ex.printStackTrace()
+        }
+    }
+
+    private fun dialog(
+        ctx: Context,
+        username: String,
+        nationality: String,
+        address: String,
+        passportNumber: String,
+        index :Int
+    ) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Choose an action!")
+            .setCancelable(false)
+            .setPositiveButton(
+                "Edit"
+            ) { dialog, id ->
+
+                delete(ctx, index)
+
+                val intent = Intent(ctx, PopUpPassportActivity::class.java)
+                intent.putExtra("username", username)
+                intent.putExtra("nationality", nationality)
+                intent.putExtra("address", address)
+                intent.putExtra("passportNumber", passportNumber)
+                startActivity(intent)
+            }
+            .setNegativeButton(
+                "Delete"
+            ) { dialog, id ->
+                delete(ctx, index)
+                dialog.cancel()
+            }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private fun delete(
+        ctx: Context,
+        index :Int
+    ) {
+        val jsonGet = sharedPref.getString("PassportData", "empty")
+        val type = object : TypeToken<ArrayList<PassportData>>() {}.type
+        val gson = Gson()
+
+        try {
+            val jsonData = gson.fromJson<ArrayList<PassportData>>(jsonGet, type)
+            jsonData.removeAt(index)
+            val editor = sharedPref.edit()
+            val jsonPut = gson.toJson(jsonData)
+            editor.putString("PassportData", jsonPut)
+            editor.apply()
+
+            listViewPP.adapter = ListViewPassportAdapter(ctx, jsonData)
+            listViewPP.deferNotifyDataSetChanged()
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
     }

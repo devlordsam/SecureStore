@@ -8,8 +8,10 @@ import android.os.Bundle
 import android.view.*
 import android.widget.BaseAdapter
 import android.widget.ListView
+import androidx.appcompat.app.AlertDialog
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.lordsam.securestore.dataclass.CreditDebitData
 import com.lordsam.securestore.dataclass.PANData
 import com.lordsam.securestore.dataclass.WebsiteData
 import kotlinx.android.synthetic.main.card_pan.view.*
@@ -31,7 +33,7 @@ class WebsiteActivity : AppCompatActivity() {
         loadData()
     }
 
-    class ListViewWebsiteAdapter(private val ctx : Context, private val arrOfWeb: ArrayList<WebsiteData>): BaseAdapter(){
+    inner class ListViewWebsiteAdapter(private val ctx : Context, private val arrOfWeb: ArrayList<WebsiteData>): BaseAdapter(){
         override fun getCount(): Int {
             return arrOfWeb.size
         }
@@ -51,6 +53,17 @@ class WebsiteActivity : AppCompatActivity() {
             view.textViewCWURL.text = card.url
             view.textViewCWLoginId.text = card.userID
             view.textViewCWPassword.text = card.password
+            view.setOnLongClickListener(View.OnLongClickListener {
+
+                dialog(
+                    ctx,
+                    card.url,
+                    card.userID,
+                    card.password,
+                    p0
+                )
+                return@OnLongClickListener false
+            })
 
             return view
         }
@@ -88,6 +101,61 @@ class WebsiteActivity : AppCompatActivity() {
             listViewWeb.adapter = ListViewWebsiteAdapter(this, arrayOfWeb)
             listViewWeb.deferNotifyDataSetChanged()
         }catch (ex: Exception){
+            ex.printStackTrace()
+        }
+    }
+
+    private fun dialog(
+        ctx: Context,
+        url: String,
+        userID: String,
+        password: String,
+        index :Int
+    ) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Choose an action!")
+            .setCancelable(false)
+            .setPositiveButton(
+                "Edit"
+            ) { dialog, id ->
+
+                delete(ctx, index)
+
+                val intent = Intent(ctx, PopUpWebsiteActivity::class.java)
+                intent.putExtra("url", url)
+                intent.putExtra("userID", userID)
+                intent.putExtra("password", password)
+                startActivity(intent)
+            }
+            .setNegativeButton(
+                "Delete"
+            ) { dialog, id ->
+                delete(ctx, index)
+                dialog.cancel()
+            }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private fun delete(
+        ctx: Context,
+        index :Int
+    ) {
+        val jsonGet = sharedPref.getString("WebsiteData", "empty")
+        val type = object : TypeToken<ArrayList<WebsiteData>>() {}.type
+        val gson = Gson()
+
+        try {
+            val jsonData = gson.fromJson<ArrayList<WebsiteData>>(jsonGet, type)
+            jsonData.removeAt(index)
+            val editor = sharedPref.edit()
+            val jsonPut = gson.toJson(jsonData)
+            editor.putString("WebsiteData", jsonPut)
+            editor.apply()
+
+            listViewWeb.adapter = ListViewWebsiteAdapter(ctx, jsonData)
+            listViewWeb.deferNotifyDataSetChanged()
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
     }

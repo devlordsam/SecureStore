@@ -14,6 +14,7 @@ import java.lang.Exception
 
 class PopUpEmailPasswordActivity : AppCompatActivity() {
 
+    private lateinit var bundle: Bundle
     private lateinit var edtEmail: EditText
     private lateinit var edtPass: EditText
     private lateinit var btnSave: Button
@@ -29,6 +30,16 @@ class PopUpEmailPasswordActivity : AppCompatActivity() {
         edtEmail = findViewById(R.id.editTextPUEPEmail)
         edtPass = findViewById(R.id.editTextPUEPPassword)
         btnSave = findViewById(R.id.buttonPUEPSave)
+
+        try {
+            bundle = intent.extras!!
+
+            if (!bundle.isEmpty){
+                setData()
+            }
+        }catch (ex :Exception){
+            ex.printStackTrace()
+        }
 
         btnSave.setOnClickListener {
             validate()
@@ -96,5 +107,10 @@ class PopUpEmailPasswordActivity : AppCompatActivity() {
         }catch (ex : Exception){
             ex.printStackTrace()
         }
+    }
+
+    private fun setData(){
+        edtEmail.setText(bundle.getString("email"))
+        edtPass.setText(bundle.getString("pass"))
     }
 }

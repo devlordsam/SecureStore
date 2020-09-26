@@ -1,5 +1,6 @@
 package com.lordsam.securestore
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ import java.lang.Exception
 class PopUpAdharActivity : AppCompatActivity() {
 
 
+    private lateinit var bundle: Bundle
     private lateinit var edtName: EditText
     private lateinit var edtFatherName: EditText
     private lateinit var edtAddress: EditText
@@ -36,6 +38,17 @@ class PopUpAdharActivity : AppCompatActivity() {
         edtMobile = findViewById(R.id.editTextPUAAMobileNumber)
         edtAdharNumber = findViewById(R.id.editTextPUAAAdharNumber)
         btnSave = findViewById(R.id.buttonPUAASave)
+
+        try {
+            bundle = intent.extras!!
+
+            if (!bundle.isEmpty){
+                setData()
+            }
+        }catch (ex :Exception){
+            ex.printStackTrace()
+        }
+
 
         btnSave.setOnClickListener {
             validate()
@@ -75,7 +88,7 @@ class PopUpAdharActivity : AppCompatActivity() {
         Toast.makeText(this, "Please fill $msg!", Toast.LENGTH_SHORT).show()
     }
 
-            private fun saveData() {
+    private fun saveData() {
         val name = edtName.text.toString()
         val fatherName = edtFatherName.text.toString()
         val address = edtAddress.text.toString()
@@ -120,5 +133,11 @@ class PopUpAdharActivity : AppCompatActivity() {
         }
     }
 
-
+    private fun setData(){
+        edtName.setText(bundle.getString("user"))
+        edtFatherName.setText(bundle.getString("father"))
+        edtAddress.setText(bundle.getString("address"))
+        edtMobile.setText(bundle.getLong("mobile").toString())
+        edtAdharNumber.setText(bundle.getLong("adharNumber").toString())
+    }
 }

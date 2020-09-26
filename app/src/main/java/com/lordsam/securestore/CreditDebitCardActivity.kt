@@ -8,8 +8,11 @@ import android.os.Bundle
 import android.view.*
 import android.widget.BaseAdapter
 import android.widget.ListView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.lordsam.securestore.dataclass.AdharData
 import com.lordsam.securestore.dataclass.CreditDebitData
 import kotlinx.android.synthetic.main.card_cards.view.*
 
@@ -29,7 +32,7 @@ class CreditDebitCardActivity : AppCompatActivity() {
         loadData()
     }
 
-    class ListViewCreditDebitAdapter(val ctx :Context, val arrOfCards: ArrayList<CreditDebitData>): BaseAdapter(){
+    inner class ListViewCreditDebitAdapter(private val ctx :Context, private val arrOfCards: ArrayList<CreditDebitData>): BaseAdapter(){
         override fun getCount(): Int {
             return arrOfCards.size
         }
@@ -52,6 +55,19 @@ class CreditDebitCardActivity : AppCompatActivity() {
             view.textViewCCExpiryYear.text = card.expiryYear.toString()
             view.textViewCCCVV.text = card.cvv.toString()
             view.textViewCCCardType.text = card.cardType
+            view.setOnLongClickListener(View.OnLongClickListener {
+
+                dialog(
+                    ctx,
+                    card.holderName,
+                    card.accountNumber,
+                    card.expiryMonth,
+                    card.expiryYear,
+                    card.cvv,
+                    p0
+                )
+                return@OnLongClickListener false
+            })
             return view
         }
 
@@ -88,6 +104,65 @@ class CreditDebitCardActivity : AppCompatActivity() {
             listViewCD.adapter = ListViewCreditDebitAdapter(this, arrayOfCards)
             listViewCD.deferNotifyDataSetChanged()
         }catch (ex: Exception){
+            ex.printStackTrace()
+        }
+    }
+
+    private fun dialog(
+        ctx: Context,
+        holder: String,
+        accountNumber: Long,
+        month: Int,
+        year: Int,
+        cvv: Int,
+        index :Int
+    ) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Choose an action!")
+            .setCancelable(false)
+            .setPositiveButton(
+                "Edit"
+            ) { dialog, id ->
+
+                delete(ctx, index)
+
+                val intent = Intent(ctx, PopUpCreditDebitActivity::class.java)
+                intent.putExtra("holder", holder)
+                intent.putExtra("accountNumber", accountNumber)
+                intent.putExtra("month", month)
+                intent.putExtra("year", year)
+                intent.putExtra("cvv", cvv)
+                startActivity(intent)
+            }
+            .setNegativeButton(
+                "Delete"
+            ) { dialog, id ->
+                delete(ctx, index)
+                dialog.cancel()
+            }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private fun delete(
+        ctx: Context,
+        index :Int
+    ) {
+        val jsonGet = sharedPref.getString("creditDebitCardData", "empty")
+        val type = object : TypeToken<ArrayList<CreditDebitData>>() {}.type
+        val gson = Gson()
+
+        try {
+            val jsonData = gson.fromJson<ArrayList<CreditDebitData>>(jsonGet, type)
+            jsonData.removeAt(index)
+            val editor = sharedPref.edit()
+            val jsonPut = gson.toJson(jsonData)
+            editor.putString("creditDebitCardData", jsonPut)
+            editor.apply()
+
+            listViewCD.adapter = ListViewCreditDebitAdapter(ctx, jsonData)
+            listViewCD.deferNotifyDataSetChanged()
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
     }

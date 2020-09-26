@@ -8,11 +8,14 @@ import android.os.Bundle
 import android.view.*
 import android.widget.BaseAdapter
 import android.widget.ListView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lordsam.securestore.dataclass.AdharData
 import kotlinx.android.synthetic.main.card_adhar.view.*
+
 
 class AdharActivity : AppCompatActivity() {
 
@@ -36,7 +39,10 @@ class AdharActivity : AppCompatActivity() {
         loadData()
     }
 
-    class ListViewAdharAdapter(val ctx : Context, val arrOfAdhar: ArrayList<AdharData>): BaseAdapter(){
+    inner class ListViewAdharAdapter(
+        private val ctx: Context,
+        private val arrOfAdhar: ArrayList<AdharData>
+    ) : BaseAdapter() {
         override fun getCount(): Int {
             return arrOfAdhar.size
         }
@@ -59,6 +65,19 @@ class AdharActivity : AppCompatActivity() {
             view.textViewCAAddress.text = card.address
             view.textViewCAMobile.text = card.mobile.toString()
             view.textViewCAAdharNumber.text = card.adharNumber.toString()
+            view.setOnLongClickListener(View.OnLongClickListener {
+
+                dialog(
+                    ctx,
+                    card.userName,
+                    card.fatherName,
+                    card.address,
+                    card.mobile,
+                    card.adharNumber,
+                    p0
+                )
+                return@OnLongClickListener false
+            })
             return view
         }
 
@@ -71,16 +90,16 @@ class AdharActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        when (item.itemId){
+        when (item.itemId) {
             R.id.menuItemAdd -> startActivity(Intent(this, PopUpAdharActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun loadData(){
+    private fun loadData() {
 
         val jsonGet = sharedPref.getString("adharData", "empty")
-        val type  = object: TypeToken<ArrayList<AdharData>>(){}.type
+        val type = object : TypeToken<ArrayList<AdharData>>() {}.type
         val gson = Gson()
 
         try {
@@ -88,7 +107,66 @@ class AdharActivity : AppCompatActivity() {
             arrayOfAdhar = jsonData
             listViewAdhar.adapter = ListViewAdharAdapter(this, arrayOfAdhar)
             listViewAdhar.deferNotifyDataSetChanged()
-        }catch (ex :Exception){
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
+    }
+
+    private fun dialog(
+        ctx: Context,
+        user: String,
+        father: String,
+        address: String,
+        mobile: Long,
+        adharNumber: Long,
+        index :Int
+    ) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Choose an action!")
+            .setCancelable(false)
+            .setPositiveButton(
+                "Edit"
+            ) { dialog, id ->
+
+                delete(ctx, index)
+
+                val intent = Intent(ctx, PopUpAdharActivity::class.java)
+                intent.putExtra("user", user)
+                intent.putExtra("father", father)
+                intent.putExtra("address", address)
+                intent.putExtra("mobile", mobile)
+                intent.putExtra("adharNumber", adharNumber)
+                startActivity(intent)
+            }
+            .setNegativeButton(
+                "Delete"
+            ) { dialog, id ->
+                delete(ctx, index)
+                dialog.cancel()
+            }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private fun delete(
+        ctx: Context,
+        index :Int
+    ) {
+        val jsonGet = sharedPref.getString("adharData", "empty")
+        val type = object : TypeToken<ArrayList<AdharData>>() {}.type
+        val gson = Gson()
+
+        try {
+            val jsonData = gson.fromJson<ArrayList<AdharData>>(jsonGet, type)
+            jsonData.removeAt(index)
+            val editor = sharedPref.edit()
+            val jsonPut = gson.toJson(jsonData)
+            editor.putString("adharData", jsonPut)
+            editor.apply()
+
+            listViewAdhar.adapter = ListViewAdharAdapter(ctx, jsonData)
+            listViewAdhar.deferNotifyDataSetChanged()
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
     }

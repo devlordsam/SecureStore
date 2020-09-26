@@ -14,6 +14,7 @@ import java.lang.Exception
 
 class PopUpPassportActivity : AppCompatActivity() {
 
+    private lateinit var bundle: Bundle
     private lateinit var edtName: EditText
     private lateinit var edtNationality: EditText
     private lateinit var edtAddress: EditText
@@ -33,6 +34,16 @@ class PopUpPassportActivity : AppCompatActivity() {
         edtAddress = findViewById(R.id.editTextPUPassportAddress)
         edtPassportNumber = findViewById(R.id.editTextPUPassportNumber)
         btnSave = findViewById(R.id.buttonPUPassportSave)
+
+        try {
+            bundle = intent.extras!!
+
+            if (!bundle.isEmpty){
+                setData()
+            }
+        }catch (ex :Exception){
+            ex.printStackTrace()
+        }
 
         btnSave.setOnClickListener {
             validate()
@@ -110,5 +121,12 @@ class PopUpPassportActivity : AppCompatActivity() {
         }catch (ex : Exception){
             ex.printStackTrace()
         }
+    }
+
+    private fun setData(){
+        edtName.setText(bundle.getString("username"))
+        edtNationality.setText(bundle.getString("nationality"))
+        edtAddress.setText(bundle.getString("address"))
+        edtPassportNumber.setText(bundle.getString("passportNumber"))
     }
 }

@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.BaseAdapter
 import android.widget.ListView
+import androidx.appcompat.app.AlertDialog
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lordsam.securestore.dataclass.CreditDebitData
@@ -32,7 +33,7 @@ class EmailPasswordActivity : AppCompatActivity() {
         loadData()
     }
 
-    class ListViewEmailPasswordAdapter(private val ctx : Context, private val arrOfEP: ArrayList<EmailPasswordData>): BaseAdapter(){
+    inner class ListViewEmailPasswordAdapter(private val ctx : Context, private val arrOfEP: ArrayList<EmailPasswordData>): BaseAdapter(){
         override fun getCount(): Int {
             return arrOfEP.size
         }
@@ -51,6 +52,16 @@ class EmailPasswordActivity : AppCompatActivity() {
             val view = inflater.inflate(R.layout.card_email_password, null)
             view.textViewCEPEmail.text = card.email
             view.textViewCEPPass.text = card.pass
+            view.setOnLongClickListener(View.OnLongClickListener {
+
+                dialog(
+                    ctx,
+                    card.email,
+                    card.pass,
+                    p0
+                )
+                return@OnLongClickListener false
+            })
             return view
         }
 
@@ -87,6 +98,59 @@ class EmailPasswordActivity : AppCompatActivity() {
             listViewEP.adapter = ListViewEmailPasswordAdapter(this, arrayOfEP)
             listViewEP.deferNotifyDataSetChanged()
         }catch (ex: Exception){
+            ex.printStackTrace()
+        }
+    }
+
+    private fun dialog(
+        ctx: Context,
+        email: String,
+        pass: String,
+        index :Int
+    ) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Choose an action!")
+            .setCancelable(false)
+            .setPositiveButton(
+                "Edit"
+            ) { dialog, id ->
+
+                delete(ctx, index)
+
+                val intent = Intent(ctx, PopUpEmailPasswordActivity::class.java)
+                intent.putExtra("email", email)
+                intent.putExtra("pass", pass)
+                startActivity(intent)
+            }
+            .setNegativeButton(
+                "Delete"
+            ) { dialog, id ->
+                delete(ctx, index)
+                dialog.cancel()
+            }
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private fun delete(
+        ctx: Context,
+        index :Int
+    ) {
+        val jsonGet = sharedPref.getString("emailPasswordData", "empty")
+        val type = object : TypeToken<ArrayList<EmailPasswordData>>() {}.type
+        val gson = Gson()
+
+        try {
+            val jsonData = gson.fromJson<ArrayList<EmailPasswordData>>(jsonGet, type)
+            jsonData.removeAt(index)
+            val editor = sharedPref.edit()
+            val jsonPut = gson.toJson(jsonData)
+            editor.putString("emailPasswordData", jsonPut)
+            editor.apply()
+
+            listViewEP.adapter = ListViewEmailPasswordAdapter(ctx, jsonData)
+            listViewEP.deferNotifyDataSetChanged()
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
     }

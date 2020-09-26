@@ -14,6 +14,7 @@ import java.lang.Exception
 
 class PopUpWebsiteActivity : AppCompatActivity() {
 
+    private lateinit var bundle: Bundle
     private lateinit var edtURL: EditText
     private lateinit var edtUserID: EditText
     private lateinit var edtPass: EditText
@@ -31,6 +32,16 @@ class PopUpWebsiteActivity : AppCompatActivity() {
         edtUserID = findViewById(R.id.editTextPUWloginId)
         edtPass = findViewById(R.id.editTextPUWPassword)
         btnSave = findViewById(R.id.buttonPUWSave)
+
+        try {
+            bundle = intent.extras!!
+
+            if (!bundle.isEmpty){
+                setData()
+            }
+        }catch (ex :Exception){
+            ex.printStackTrace()
+        }
 
         btnSave.setOnClickListener {
             validate()
@@ -103,5 +114,11 @@ class PopUpWebsiteActivity : AppCompatActivity() {
         }catch (ex : Exception){
             ex.printStackTrace()
         }
+    }
+
+    private fun setData(){
+        edtURL.setText(bundle.getString("url"))
+        edtUserID.setText(bundle.getString("userID"))
+        edtPass.setText(bundle.getString("password"))
     }
 }

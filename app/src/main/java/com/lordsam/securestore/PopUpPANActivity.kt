@@ -14,6 +14,7 @@ import java.lang.Exception
 
 class PopUpPANActivity : AppCompatActivity() {
 
+    private lateinit var bundle: Bundle
     private lateinit var edtName: EditText
     private lateinit var edtFatherName: EditText
     private lateinit var edtPANNumber: EditText
@@ -33,6 +34,16 @@ class PopUpPANActivity : AppCompatActivity() {
         edtPANNumber = findViewById(R.id.editTextPUPANNumber)
         edtPANType = findViewById(R.id.editTextPUPANType)
         btnSave = findViewById(R.id.buttonPUPANSave)
+
+        try {
+            bundle = intent.extras!!
+
+            if (!bundle.isEmpty){
+                setData()
+            }
+        }catch (ex :Exception){
+            ex.printStackTrace()
+        }
 
         btnSave.setOnClickListener {
             validate()
@@ -110,5 +121,12 @@ class PopUpPANActivity : AppCompatActivity() {
         }catch (ex : Exception){
             ex.printStackTrace()
         }
+    }
+
+    private fun setData(){
+        edtName.setText(bundle.getString("holder"))
+        edtFatherName.setText(bundle.getString("fatherName"))
+        edtPANNumber.setText(bundle.getString("number"))
+        edtPANType.setText(bundle.getString("type"))
     }
 }

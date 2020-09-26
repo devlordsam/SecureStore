@@ -14,6 +14,7 @@ import java.lang.Exception
 
 class PopUpCreditDebitActivity : AppCompatActivity() {
 
+    private lateinit var bundle: Bundle
     private lateinit var sharedPref: SharedPreferences
     private lateinit var edtHolder: EditText
     private lateinit var edtAccount: EditText
@@ -37,6 +38,16 @@ class PopUpCreditDebitActivity : AppCompatActivity() {
         edtCvv = findViewById(R.id.editTextPUCDCvv)
         cardTypeSpinner = findViewById(R.id.spinnerPUCDCardType)
         btnSave = findViewById(R.id.buttonPUCDSave)
+
+        try {
+            bundle = intent.extras!!
+
+            if (!bundle.isEmpty){
+                setData()
+            }
+        }catch (ex :Exception){
+            ex.printStackTrace()
+        }
 
         btnSave.setOnClickListener {
             validate()
@@ -121,5 +132,13 @@ class PopUpCreditDebitActivity : AppCompatActivity() {
         }catch (ex :Exception){
             ex.printStackTrace()
         }
+    }
+
+    private fun setData(){
+        edtHolder.setText(bundle.getString("holder"))
+        edtExMonth.setText(bundle.getLong("accountNumber").toString())
+        edtExYear.setText(bundle.getInt("year").toString())
+        edtAccount.setText(bundle.getInt("month").toString())
+        edtCvv.setText(bundle.getInt("cvv").toString())
     }
 }
