@@ -50,6 +50,7 @@
     <string name="login_id_">Login ID :</string>
     <string name="login_id">Login ID</string>
     <string name="password">Password</string>
+    <string name="card_holder_name">Card Holder Name</string>
     <string-array name="cardTypes">
         <item>Maestro Card</item>
         <item>Visa Card</item>

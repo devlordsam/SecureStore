@@ -61,7 +61,7 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/btn_style"
         android:text="@string/create_account"
-        android:textColor="@color/darkBlue"
+        android:textColor="@color/colorAccent"
         android:textAllCaps="false"
         android:textSize="16sp" />
 

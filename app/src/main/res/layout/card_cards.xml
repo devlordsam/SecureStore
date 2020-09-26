@@ -21,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:padding="10dp"
+                android:textColor="@color/blurSky"
                 android:textStyle="bold"
                 android:text="@string/acc_no"
                 android:textSize="16sp" />
@@ -29,7 +30,9 @@
                 android:id="@+id/textViewCCAccountNumber"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
+                android:textColor="@color/colorAccent"
                 android:layout_height="match_parent"
+                android:background="@drawable/all_corner_neviblue"
                 android:layout_margin="10dp"
                 android:text="@string/account_number"
                 android:textSize="20sp" />
@@ -56,6 +59,7 @@
                     android:layout_weight="0"
                     android:padding="10dp"
                     android:textStyle="bold"
+                    android:textColor="@color/blurSky"
                     android:text="@string/month_"
                     android:textSize="16sp" />
 
@@ -64,7 +68,9 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
+                    android:background="@color/neviBlue"
                     android:layout_weight="1"
+                    android:textColor="@color/colorAccent"
                     android:textSize="20sp"
                     android:text="@string/month" />
             </LinearLayout>
@@ -90,6 +96,7 @@
                     android:layout_weight="0"
                     android:padding="10dp"
                     android:textStyle="bold"
+                    android:textColor="@color/blurSky"
                     android:text="@string/year_"
                     android:textSize="16sp" />
 
@@ -99,6 +106,8 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
+                    android:background="@color/neviBlue"
+                    android:textColor="@color/colorAccent"
                     android:text="@string/year"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -121,6 +130,7 @@
                 android:layout_weight="0"
                 android:padding="10dp"
                 android:textStyle="bold"
+                android:textColor="@color/blurSky"
                 android:text="@string/holder_"
                 android:textSize="16sp" />
 
@@ -128,9 +138,11 @@
                 android:id="@+id/textViewCCHolderName"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
+                android:background="@color/neviBlue"
                 android:textSize="20sp"
+                android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
-                android:text="Card Holder Name" />
+                android:text="@string/card_holder_name" />
         </LinearLayout>
 
 
@@ -144,6 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:textColor="@color/blurSky"
                 android:padding="10dp"
                 android:textStyle="bold"
                 android:text="@string/cvv_"
@@ -153,7 +166,9 @@
                 android:id="@+id/textViewCCCVV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
                 android:layout_weight="2"
+                android:background="@color/neviBlue"
                 android:text="@string/cvv"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -163,8 +178,10 @@
             android:id="@+id/textViewCCCardType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/neviBlue"
             android:layout_margin="8dp"
             android:textStyle="bold"
+            android:textColor="@color/colorAccent"
             android:gravity="end"
             android:text="@string/card_type" />
 

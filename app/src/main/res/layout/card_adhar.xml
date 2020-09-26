@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:padding="10dp"
+                android:textColor="@color/blurSky"
                 android:textStyle="bold"
                 android:text="@string/name_"
                 android:textSize="16sp" />
@@ -35,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
+                android:textColor="@color/colorAccent"
                 android:text="@string/name"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -50,6 +52,7 @@
                 android:layout_weight="0"
                 android:padding="10dp"
                 android:textStyle="bold"
+                android:textColor="@color/blurSky"
                 android:text="@string/father_s_name_"
                 android:textSize="16sp" />
 
@@ -58,6 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
                 android:padding="10dp"
                 android:text="@string/father_name"
                 android:textSize="20sp" />
@@ -73,6 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:padding="10dp"
+                android:textColor="@color/blurSky"
                 android:textStyle="bold"
                 android:text="@string/address_"
                 android:textSize="16sp" />
@@ -83,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:layout_weight="1"
+                android:textColor="@color/colorAccent"
                 android:padding="10dp"
                 android:text="@string/address"
                 android:textSize="20sp"
@@ -99,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:padding="10dp"
+                android:textColor="@color/blurSky"
                 android:textStyle="bold"
                 android:text="@string/mobile_"
                 android:textSize="16sp" />
@@ -108,6 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textColor="@color/colorAccent"
                 android:layout_weight="1"
                 android:text="@string/mobile_number"
                 android:textSize="20sp" />
@@ -122,6 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:textColor="@color/blurSky"
                 android:padding="10dp"
                 android:textStyle="bold"
                 android:text="@string/adhar_number_"
@@ -131,6 +140,7 @@
                 android:id="@+id/textViewCAAdharNumber"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
+                android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="@string/adhar_number"

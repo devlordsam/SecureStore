@@ -20,6 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/blurSky"
                 android:layout_weight="0"
                 android:padding="10dp"
                 android:textStyle="bold"
@@ -30,6 +31,7 @@
                 android:id="@+id/textViewCPANName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
                 android:padding="10dp"
                 android:text="@string/name"
                 android:layout_weight="1"
@@ -47,6 +49,7 @@
                 android:layout_weight="0"
                 android:padding="10dp"
                 android:textStyle="bold"
+                android:textColor="@color/blurSky"
                 android:text="@string/pan_number_"
                 android:textSize="16sp" />
 
@@ -54,6 +57,7 @@
                 android:id="@+id/textViewCPANNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
                 android:padding="10dp"
                 android:layout_weight="1"
                 android:text="@string/pan_number"
@@ -71,12 +75,14 @@
                 android:layout_weight="0"
                 android:padding="10dp"
                 android:textStyle="bold"
+                android:textColor="@color/blurSky"
                 android:text="@string/father_s_name_"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textViewCPANFather"
                 android:layout_width="match_parent"
+                android:textColor="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:layout_weight="1"
@@ -95,6 +101,7 @@
                 android:layout_weight="0"
                 android:padding="10dp"
                 android:textStyle="bold"
+                android:textColor="@color/blurSky"
                 android:text="@string/pan_type_"
                 android:textSize="16sp" />
 
@@ -102,6 +109,7 @@
                 android:id="@+id/textViewCPANType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
                 android:padding="10dp"
                 android:layout_weight="1"
                 android:text="@string/pan_type"
