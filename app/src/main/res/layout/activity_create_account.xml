@@ -54,6 +54,31 @@
         android:textSize="20sp"
         android:autofillHints="example@123"/>
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerCA"
+        android:padding="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/all_corner_neviblue"
+        android:entries="@array/questions"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextCAAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/answer"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/all_corner_neviblue"
+        android:textStyle="bold"
+        android:padding="2dp"
+        android:textColor="@color/colorAccent"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:autofillHints="example@123"/>
+
     <Button
         android:id="@+id/buttonCA"
         android:layout_width="match_parent"

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -14,6 +15,7 @@ import com.lordsam.securestore.dataclass.AccountData
 
 class LoginActivity : AppCompatActivity() {
 //sam
+    private lateinit var txtHelp: TextView
     private lateinit var edtUsername: EditText
     private lateinit var edtPass: EditText
     private lateinit var btnLogin: Button
@@ -27,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
         edtUsername = findViewById(R.id.editTextLoginUsername)
         edtPass = findViewById(R.id.editTextLoginPass)
         btnLogin = findViewById(R.id.buttonLogin)
+        txtHelp = findViewById(R.id.textViewLoginHelp)
 
         try {
             //sharedPreference :load data
@@ -46,6 +49,10 @@ class LoginActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             validateData()
+        }
+
+        txtHelp.setOnClickListener {
+            startActivity(Intent(this, HelpActivity::class.java))
         }
 
     }

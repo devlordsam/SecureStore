@@ -51,10 +51,25 @@
     <string name="login_id">Login ID</string>
     <string name="password">Password</string>
     <string name="card_holder_name">Card Holder Name</string>
+    <string name="need_help">Need Help?</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_username">Reset Username</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="enter_old_password">Enter old password</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="re_enter_new_password">Re-enter new password</string>
+    <string name="answer">Answer</string>
+    <string name="check">Check</string>
     <string-array name="cardTypes">
         <item>Maestro Card</item>
         <item>Visa Card</item>
         <item>RuPay Card</item>
         <item>Other Card</item>
+    </string-array>
+
+    <string-array name="questions">
+        <item>What is your friend\'s name?</item>
+        <item>What is your favourite cartoon?</item>
+        <item>What is your vehicle number?</item>
     </string-array>
 </resources>

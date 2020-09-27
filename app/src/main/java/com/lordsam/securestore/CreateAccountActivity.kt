@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -15,6 +16,8 @@ class CreateAccountActivity : AppCompatActivity() {
     private lateinit var edtUsername: EditText
     private lateinit var edtPass1: EditText
     private lateinit var edtPass2: EditText
+    private lateinit var edtAnswer: EditText
+    private lateinit var spinner: Spinner
     private lateinit var btnCreate: Button
     private lateinit var sharedPref: SharedPreferences
 
@@ -26,47 +29,54 @@ class CreateAccountActivity : AppCompatActivity() {
         edtUsername = findViewById(R.id.editTextCAUsername)
         edtPass1 = findViewById(R.id.editTextCAPass1)
         edtPass2 = findViewById(R.id.editTextCAPass2)
+        edtAnswer = findViewById(R.id.editTextCAAnswer)
         btnCreate = findViewById(R.id.buttonCA)
+        spinner = findViewById(R.id.spinnerCA)
 
         btnCreate.setOnClickListener {
             validateData()
         }
     }
 
-    private fun validateData(){
+    private fun validateData() {
 
-        if (edtUsername.text.toString().isEmpty()){
+        if (edtUsername.text.toString().isEmpty()) {
             Toast.makeText(this, "Please Fill Username!", Toast.LENGTH_SHORT).show()
             edtUsername.requestFocus()
-        }
-        else if (edtPass1.text.toString().isEmpty()){
+        } else if (edtPass1.text.toString().isEmpty()) {
             Toast.makeText(this, "Please Fill Password!", Toast.LENGTH_SHORT).show()
             edtPass1.requestFocus()
-        }
-        else if (edtPass2.text.toString().isEmpty()){
+        } else if (edtPass2.text.toString().isEmpty()) {
             Toast.makeText(this, "Please Re-enter Password!", Toast.LENGTH_SHORT).show()
             edtPass2.requestFocus()
-        }
-        else if (edtPass1.text.toString().trim().length < 8 || edtPass2.text.toString().trim().length < 8){
+        } else if (edtAnswer.text.toString().isEmpty()) {
+            Toast.makeText(this, "Please enter answer!", Toast.LENGTH_SHORT).show()
+            edtPass2.requestFocus()
+        } else if (edtPass1.text.toString().trim().length < 8 || edtPass2.text.toString()
+                .trim().length < 8
+        ) {
             Toast.makeText(this, "Password Too Small!", Toast.LENGTH_SHORT).show()
-        }
-        else if (edtPass1.text.toString().trim() != edtPass2.text.toString().trim()){
+        } else if (edtPass1.text.toString().trim() != edtPass2.text.toString().trim()) {
             Toast.makeText(this, "Password Not Same!", Toast.LENGTH_SHORT).show()
-        }
-        else{
-            createAccount(edtUsername.text.toString().trim(), edtPass1.text.toString().trim())
+        } else {
+            createAccount(
+                edtUsername.text.toString().trim(),
+                edtPass1.text.toString().trim(),
+                spinner.selectedItem.toString(),
+                edtAnswer.text.toString()
+            )
         }
     }
 
-    private fun createAccount(userName :String, pass :String){
+    private fun createAccount(userName: String, pass: String, query: String, answer: String) {
 
         //sharedPreference :add data
         val editor = sharedPref.edit()
         val gson = Gson()
-        val json = gson.toJson(AccountData(userName, pass))
+        val json = gson.toJson(AccountData(userName, pass, query, answer))
         editor.putString("accountData", json)
         editor.apply().also {
-            if (sharedPref.getString("accountData", "empty") != "empty"){
+            if (sharedPref.getString("accountData", "empty") != "empty") {
                 Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
                 finish()
             }

@@ -9,8 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopUpPassportActivity"
+        <activity android:name=".ResetUsernameActivity"
             android:theme="@style/Dialog"/>
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:theme="@style/Dialog" />
+        <activity android:name=".HelpActivity" />
+        <activity
+            android:name=".PopUpPassportActivity"
+            android:theme="@style/Dialog" />
         <activity
             android:name=".PopUpEmailPasswordActivity"
             android:theme="@style/Dialog" />

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".HelpActivity">
+
+
+    <Button
+        android:id="@+id/buttonHelpResetPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/reset_password"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonHelpResetUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/reset_username"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"/>
+
+    <Button
+        android:id="@+id/buttonHelpForgotPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/forgot_password"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonHelpForgotUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Forgot Username"
+        android:textSize="16sp" />
+
+
+</LinearLayout>
