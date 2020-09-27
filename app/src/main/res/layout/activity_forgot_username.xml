@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:context=".ForgotUsernameActivity">
+
+
+    <Spinner
+        android:id="@+id/spinnerFUQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:entries="@array/questions" />
+
+    <EditText
+        android:id="@+id/editTextFUAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/answer"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonFUCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/check" />
+
+    <EditText
+        android:id="@+id/editTextFUNewPass1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/enter_username"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextFUNewPass2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/re_enter_username"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/buttonFUSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save" />
+
+</LinearLayout>

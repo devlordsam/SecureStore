@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResetUsernameActivity"
-            android:theme="@style/Dialog"/>
+        <activity android:name=".ForgotUsernameActivity"></activity>
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:theme="@style/Dialog" />
+        <activity
+            android:name=".ResetUsernameActivity"
+            android:theme="@style/Dialog" />
         <activity
             android:name=".ResetPasswordActivity"
             android:theme="@style/Dialog" />

@@ -5,14 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lordsam.securestore.dataclass.AccountData
 
-class ResetPasswordActivity : AppCompatActivity() {
+class ForgotPasswordActivity : AppCompatActivity() {
 
-    private lateinit var edtOldPass: EditText
+    private lateinit var spinner: Spinner
+    private lateinit var edtAnswer: EditText
     private lateinit var edtNewPass1: EditText
     private lateinit var edtNewPass2: EditText
     private lateinit var btnCheck: Button
@@ -22,48 +24,50 @@ class ResetPasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reset_password)
+        setContentView(R.layout.activity_forgot_password)
         sharedPref = getSharedPreferences("CreateAccount", MODE_PRIVATE)
 
-        edtOldPass = findViewById(R.id.editTextRPOldPass)
-        edtNewPass1 = findViewById(R.id.editTextRPNewPass1)
-        edtNewPass2 = findViewById(R.id.editTextRPNewPass2)
-        btnCheck = findViewById(R.id.buttonRPCheck)
-        btnSave = findViewById(R.id.buttonRPSave)
+        spinner = findViewById(R.id.spinnerFPQuestion)
+        edtAnswer = findViewById(R.id.editTextFPAnswer)
+        edtNewPass1 = findViewById(R.id.editTextFPNewPass1)
+        edtNewPass2 = findViewById(R.id.editTextFPNewPass2)
+        btnCheck = findViewById(R.id.buttonFPCheck)
+        btnSave = findViewById(R.id.buttonFPSave)
 
         btnCheck.setOnClickListener {
 
-            if (edtOldPass.text.isNotEmpty()) {
-                check(edtOldPass.text.toString().trim())
-            } else {
-                Toast.makeText(this, "Enter old password!", Toast.LENGTH_SHORT).show()
+            if (edtAnswer.text.isNotEmpty()) {
+                check(spinner.selectedItem.toString(), edtAnswer.text.toString().trim())
+            }else{
+                Toast.makeText(this, "Enter Answer!", Toast.LENGTH_SHORT).show()
             }
         }
 
         btnSave.setOnClickListener {
             if (edtNewPass1.text.isEmpty()) {
                 Toast.makeText(this, "Enter new password!", Toast.LENGTH_SHORT).show()
-            } else if (edtNewPass2.text.isEmpty()) {
+            }else if (edtNewPass2.text.isEmpty()){
                 Toast.makeText(this, "Re-enter new password!", Toast.LENGTH_SHORT).show()
-            } else if (edtNewPass1.text.toString() != edtNewPass2.text.toString()) {
+            }else if (edtNewPass2.text.toString() != edtNewPass1.text.toString()){
                 Toast.makeText(this, "Password not same!", Toast.LENGTH_SHORT).show()
-            } else {
+            } else{
                 savePass(edtNewPass1.text.toString())
             }
         }
     }
 
-    private fun check(oldPass: String) {
+    private fun check(question: String, answer: String) {
         val gson = Gson()
         val json = sharedPref.getString("accountData", "empty")
-        val type = object : TypeToken<AccountData>() {}.type
+        val type  = object: TypeToken<AccountData>(){}.type
         val data = gson.fromJson<AccountData>(json, type)
-        val getPass = data.pass
+        val getQuestion = data.query
+        val getAnswer = data.answer
 
-        if (oldPass == getPass) {
+        if (getQuestion == question && getAnswer == answer){
             Toast.makeText(this, "Verification successful!", Toast.LENGTH_SHORT).show()
             legit = true
-        } else {
+        }else{
             Toast.makeText(this, "Verification failed!", Toast.LENGTH_SHORT).show()
         }
     }
@@ -83,7 +87,7 @@ class ResetPasswordActivity : AppCompatActivity() {
                 Toast.makeText(this, "Password Changed!", Toast.LENGTH_SHORT).show()
                 finish()
             }
-        } else {
+        }else{
             Toast.makeText(this, "Please verify first!", Toast.LENGTH_SHORT).show()
         }
     }

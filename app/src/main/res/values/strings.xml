@@ -60,6 +60,8 @@
     <string name="re_enter_new_password">Re-enter new password</string>
     <string name="answer">Answer</string>
     <string name="check">Check</string>
+    <string name="enter_username">Enter username</string>
+    <string name="re_enter_username">Re-enter username</string>
     <string-array name="cardTypes">
         <item>Maestro Card</item>
         <item>Visa Card</item>

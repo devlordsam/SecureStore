@@ -28,5 +28,11 @@ class HelpActivity : AppCompatActivity() {
         btnResetUsername.setOnClickListener {
             startActivity(Intent(this, ResetUsernameActivity::class.java))
         }
+        btnForgotPass.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
+        btnForgotUsername.setOnClickListener {
+            startActivity(Intent(this, ForgotUsernameActivity::class.java))
+        }
     }
 }
