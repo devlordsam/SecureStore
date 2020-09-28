@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_old_password"
+        android:textColor="@color/colorAccent"
         android:layout_marginBottom="8dp"
         android:textSize="16sp"
         android:id="@+id/editTextRUOldUsername"/>
@@ -22,12 +23,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/buttonRUCheck"
         android:layout_marginBottom="8dp"
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/btn_style"
         android:text="@string/check"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_new_password"
+        android:textColor="@color/colorAccent"
         android:layout_marginBottom="8dp"
         android:textSize="16sp"
         android:id="@+id/editTextRUNewUsername1"/>
@@ -36,12 +40,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:textColor="@color/colorAccent"
         android:hint="@string/re_enter_new_password"
         android:textSize="16sp"
         android:id="@+id/editTextRUNewUsername2"/>
 
     <Button
         android:layout_width="match_parent"
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/btn_style"
         android:layout_height="wrap_content"
         android:id="@+id/buttonRUSave"
         android:text="@string/save"/>

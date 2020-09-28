@@ -20,20 +20,24 @@
         android:id="@+id/editTextFUAnswer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
         android:layout_marginBottom="8dp"
         android:hint="@string/answer"
         android:textSize="16sp" />
 
     <Button
         android:id="@+id/buttonFUCheck"
+        android:textColor="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_style"
         android:layout_marginBottom="8dp"
         android:text="@string/check" />
 
     <EditText
         android:id="@+id/editTextFUNewPass1"
         android:layout_width="match_parent"
+        android:textColor="@color/colorAccent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:hint="@string/enter_username"
@@ -43,12 +47,15 @@
         android:id="@+id/editTextFUNewPass2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
         android:layout_marginBottom="8dp"
         android:hint="@string/re_enter_username"
         android:textSize="16sp" />
 
     <Button
         android:id="@+id/buttonFUSave"
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/btn_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save" />

@@ -62,6 +62,7 @@
     <string name="check">Check</string>
     <string name="enter_username">Enter username</string>
     <string name="re_enter_username">Re-enter username</string>
+    <string name="forgot_username">Forgot Username</string>
     <string-array name="cardTypes">
         <item>Maestro Card</item>
         <item>Visa Card</item>

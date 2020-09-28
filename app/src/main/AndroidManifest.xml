@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotUsernameActivity"></activity>
+        <activity android:name=".ForgotUsernameActivity"
+            android:theme="@style/Dialog"/>
         <activity
             android:name=".ForgotPasswordActivity"
             android:theme="@style/Dialog" />
@@ -38,15 +39,24 @@
         <activity
             android:name=".PopUpCreditDebitActivity"
             android:theme="@style/Dialog" />
-        <activity android:name=".CreditDebitCardActivity" />
-        <activity android:name=".AdharActivity" />
-        <activity android:name=".EmailPasswordActivity" />
-        <activity android:name=".PanCardActivity" />
-        <activity android:name=".PassportActivity" />
-        <activity android:name=".WebsiteActivity" />
-        <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".CreditDebitCardActivity"
+            android:label="Credit/Debit"/>
+        <activity android:name=".AdharActivity"
+            android:label="Adhar"/>
+        <activity android:name=".EmailPasswordActivity"
+            android:label="Email/Password"/>
+        <activity android:name=".PanCardActivity"
+            android:label="PAN"/>
+        <activity android:name=".PassportActivity"
+            android:label="Passport"/>
+        <activity android:name=".WebsiteActivity"
+            android:label="Website"/>
+        <activity android:name=".CreateAccountActivity"
+            android:label="Create Account"/>
+        <activity android:name=".LoginActivity"
+            android:label="Login"/>
+        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

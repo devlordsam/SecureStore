@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/darkBlue"
     android:orientation="vertical"
     android:padding="8dp"
     tools:context=".HelpActivity">
@@ -14,6 +15,8 @@
         android:id="@+id/buttonHelpResetPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_style"
+        android:textColor="@color/colorAccent"
         android:layout_marginBottom="8dp"
         android:text="@string/reset_password"
         android:textSize="16sp" />
@@ -22,6 +25,8 @@
         android:id="@+id/buttonHelpResetUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_style"
+        android:textColor="@color/colorAccent"
         android:layout_marginBottom="8dp"
         android:text="@string/reset_username"
         android:textSize="16sp" />
@@ -36,6 +41,8 @@
         android:id="@+id/buttonHelpForgotPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_style"
+        android:textColor="@color/colorAccent"
         android:layout_marginBottom="8dp"
         android:text="@string/forgot_password"
         android:textSize="16sp" />
@@ -43,9 +50,11 @@
     <Button
         android:id="@+id/buttonHelpForgotUsername"
         android:layout_width="match_parent"
+        android:background="@drawable/btn_style"
+        android:textColor="@color/colorAccent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Forgot Username"
+        android:text="@string/forgot_username"
         android:textSize="16sp" />
 
 
